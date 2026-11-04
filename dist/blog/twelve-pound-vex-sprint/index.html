@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Art of the 12-Pound Sprint: Aggressive Pocketing and Half-Cut Drives at VEX Worlds — Ian Talbert</title>
+  <meta name="description" content="Ian Talbert is a Mechanical Engineer from Rose-Hulman Institute of Technology specializing in mechanism design, combat robotics, and high-strain kinetic systems.">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Math rendering support for technical treatises -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+
+<main class="book-leaf">
+  <header class="running-header">
+    <div class="running-header-top">
+      <span>Rose-Hulman Institute of Technology &middot; Class of 2026</span>
+      <span>Honolulu, HI &middot; Terre Haute, IN</span>
+    </div>
+    <div class="running-header-nav">
+      <a href="/" class="nav-title">Ian Talbert</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="">About</a></li>
+          <li><a href="/portfolio" class="">Portfolio</a></li>
+          <li><a href="/resume" class="">Resume</a></li>
+          <li><a href="/blog" class="active">Field Notes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<article class="post-container">
+  <div style="margin-bottom: 1.5rem;">
+    <a href="/blog" style="font-size: 0.88rem; font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--ink-tertiary); text-decoration: none;">
+      &larr; Return to Field Notes Catalog
+    </a>
+  </div>
+
+  <header class="treatise-header">
+    <div class="treatise-num">
+      Treatise III &middot; 2026-01-20 &middot; 6 min read
+    </div>
+    <h1 class="treatise-title" style="font-size: 2.1rem; margin-top: 0.25rem;">
+      The Art of the 12-Pound Sprint: Aggressive Pocketing and Half-Cut Drives at VEX Worlds
+    </h1>
+    
+      <div class="treatise-meta" style="margin-top: 0.5rem;">
+        Categories: VEX Robotics &amp;middot; Fabrication &amp;middot; Weight Optimization &amp;middot; Chassis Design &amp;middot; VRC
+      </div>
+    
+  </header>
+
+  <div class="post-content" style="margin-top: 2rem;">
+    <p>In the 2021–2022 VEX Robotics Competition season (<em>Tipping Point</em>), the first fifteen seconds of autonomous match play were frequently decided within forty feet of travel. In the center of the 12x12-foot foam field stood neutral mobile goals. The robot that arrived at the center goal first, locked onto it with pneumatic clamping forks, and reversed backward won autonomous bonus points and dictated the entire pace of the match.</p>
+<p>Most competitive teams arrived at the World Championship in Dallas with 16-to-18-pound robots powered by four- or six-motor drivetrains geared between 280 and 360 RPM. At those weights, acceleration was sluggish, and wheel slip during direction reversals robbed valuable fractions of a second.</p>
+<p>Our design objective for robot 42700B was radical: achieve an unprecedented power-to-weight ratio by fielding a full-capability competition machine weighing just 12.0 pounds—making it the fastest robot to the middle of the field at Worlds.</p>
+<h3>Half-Cut Drivetrain Architecture</h3>
+<p>In standard VRC construction, drivetrains are assembled using full-width aluminum C-channels ($1\times2\times1\times35$ or $1\times3\times1\times35$ hole sections). While structurally rigid, the internal flanges represent parasitic mass located far away from the primary load paths.</p>
+<pre><code>Standard C-Channel:             Half-Cut &quot;L&quot; Section:
+      +-------+                      +-------+
+      |       |                      |       |
+      |   O   |                      |   O   |
+      |       |                      |       |
+      +---+---+                      +-------+
+          |                              |
+          |                              | (Milled or Sheared Flange)
+      +---+---+
+      |   O   |
+      +-------+
+</code></pre>
+<p>To eliminate this surplus weight:</p>
+<ol>
+<li><strong>Half-Cut Geometry:</strong> Every structural channel was precision band-sawed and milled down its centerline, converting heavy C-channels into lightweight L-angles and flat plates wherever torsional loads permitted.</li>
+<li><strong>Bearing Flat Relieving:</strong> Standard acetal bearing flats were trimmed down to bare circular hubs around the hex-shaft bore, retaining shaft alignment while stripping dozens of grams across eight support points.</li>
+<li><strong>Pneumatic Reservoir Integration:</strong> By utilizing short-stroke 10mm-bore pneumatic cylinders and trimming air tubing to exact millimeter runs, our pneumatic manifold weighed under 220 grams while supplying twelve full-pressure clamping actuations.</li>
+</ol>
+<h3>Kinetic Energy and Traction Dynamics</h3>
+<p>Cutting mass from 16.5 lb to 12.0 lb yields a dramatic 27% mass reduction. Since $F = m a$, for identical motor torque $T$ applied through identical 3.25-inch Omni wheels, acceleration increases in direct inverse proportion to mass:</p>
+<p>$$a_{\text{12lb}} = \frac{F_{\text{drive}}}{m_{\text{12lb}}} \approx 1.37 \cdot a_{\text{16.5lb}}$$</p>
+<p>This 37% gain in translational acceleration allowed our robot to hit top speed within two wheel rotations. In tournament play, 42700B consistently reached the center goal in under 0.85 seconds—beating opposing machines by nearly half a robot length.</p>
+<h3>Structural Tradeoffs: Deflection Under Shock</h3>
+<p>The danger of extreme lightweighting is chassis deflection. When a 12-pound machine colliding at full speed strikes an opposing robot or arena perimeter wall, thin structural flanges can buckle.</p>
+<p>To maintain structural integrity without adding steel gussets, we employed:</p>
+<ul>
+<li><strong>Tensioned Cross-Bracing:</strong> Instead of heavy aluminum plates, 1/16-inch high-tensile steel wire was tensioned diagonally across the chassis belly-pan in an X-pattern. Steel wire offers an extraordinary tensile modulus per gram, resisting parallelogram shear racking under heavy side collisions while adding less than 15 grams of total weight.</li>
+<li><strong>Strategic Standoff Stacking:</strong> Standoff spacers were threaded together with high-strength alloy steel set screws and torqued into closed triangulated space-frames, forming rigid torque boxes directly around the cantilevered drive shafts.</li>
+</ul>
+<p>The resulting machine demonstrated that extreme mechanical discipline and purposeful mass elimination can overcome raw motor count, turning kinematics and acceleration into an insurmountable tactical advantage.</p>
+
+  </div>
+
+  <div style="border-top: 1px solid var(--rule-medium); margin-top: 3.5rem; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <a href="/blog" class="btn-book btn-book-outline">&larr; All Dispatches</a>
+    </div>
+    <div>
+      <a href="/portfolio" class="btn-book">Examine Engineering Portfolio &rarr;</a>
+    </div>
+  </div>
+</article>
+
+  <footer class="monograph-footer">
+    <div class="footer-fleuron">&#10086; &#10087; &#10086;</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Ian Talbert</h5>
+        <p>Mechanical Engineer &middot; B.S. Rose-Hulman 2026</p>
+        <p>Mechanism design, high-strain dynamics, kinetic combat robotics, and autonomous sample acquisition systems.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact Coordinates</h5>
+        <p><strong>Email:</strong> <a href="mailto:talberik@rose-hulman.edu">talberik@rose-hulman.edu</a></p>
+        <p><strong>Phone:</strong> <a href="tel:8083516232">(808) 351-6232</a></p>
+        <p><strong>Stations:</strong> Honolulu, HI &middot; Terre Haute, IN</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Channels & Profiles</h5>
+        <ul>
+          <li><a href="https://github.com/talberik" target="_blank" rel="noopener">GitHub &middot; /talberik</a></li>
+          <li><a href="https://linkedin.com/in/ian-talbert" target="_blank" rel="noopener">LinkedIn &middot; /in/ian-talbert</a></li>
+          <li><a href="https://nhrl.io" target="_blank" rel="noopener">NHRL &middot; Midwest Combat Robot Assoc.</a></li>
+          <li><a href="/resume.pdf" target="_blank">Direct Curriculum Vitae (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-colophon-bar">
+      <span>Typeset in Berkeley Oldstyle &amp; Newsreader &middot; Bound on a Node.js platform.</span>
+      <span>Printed in Terre Haute &amp; Honolulu &middot; &copy; 2026 Ian Talbert</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
+

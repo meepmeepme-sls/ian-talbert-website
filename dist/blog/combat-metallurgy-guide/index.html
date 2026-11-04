@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing for Impact: Structural Lessons from 6061-T6 to Grade 5 Titanium in 3lb Combat — Ian Talbert</title>
+  <meta name="description" content="Ian Talbert is a Mechanical Engineer from Rose-Hulman Institute of Technology specializing in mechanism design, combat robotics, and high-strain kinetic systems.">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Math rendering support for technical treatises -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+
+<main class="book-leaf">
+  <header class="running-header">
+    <div class="running-header-top">
+      <span>Rose-Hulman Institute of Technology &middot; Class of 2026</span>
+      <span>Honolulu, HI &middot; Terre Haute, IN</span>
+    </div>
+    <div class="running-header-nav">
+      <a href="/" class="nav-title">Ian Talbert</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="">About</a></li>
+          <li><a href="/portfolio" class="">Portfolio</a></li>
+          <li><a href="/resume" class="">Resume</a></li>
+          <li><a href="/blog" class="active">Field Notes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<article class="post-container">
+  <div style="margin-bottom: 1.5rem;">
+    <a href="/blog" style="font-size: 0.88rem; font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--ink-tertiary); text-decoration: none;">
+      &larr; Return to Field Notes Catalog
+    </a>
+  </div>
+
+  <header class="treatise-header">
+    <div class="treatise-num">
+      Treatise IV &middot; 2025-11-12 &middot; 8 min read
+    </div>
+    <h1 class="treatise-title" style="font-size: 2.1rem; margin-top: 0.25rem;">
+      Designing for Impact: Structural Lessons from 6061-T6 to Grade 5 Titanium in 3lb Combat
+    </h1>
+    
+      <div class="treatise-meta" style="margin-top: 0.5rem;">
+        Categories: Combat Robotics &amp;middot; Metallurgy &amp;middot; FEA &amp;middot; Machining &amp;middot; Materials
+      </div>
+    
+  </header>
+
+  <div class="post-content" style="margin-top: 2rem;">
+    <p>In Beetleweight (3lb) combat robotics, kinetic energy densities border on the absurd. A single horizontal spinning steel bar revolving at 14,000 RPM stores upwards of 800 Joules of kinetic energy. When that bar makes contact with an opponent’s chassis over an engagement window of less than three milliseconds, instantaneous peak shock loads routinely exceed 12,000 Newtons.</p>
+<p>Under these hypervelocity strain rates, standard static strength specifications become misleading. The common assumption that “harder and stronger is always better” results in catastrophic failures: brittle fracture of tool steels, stripped thread bosses, and shattered structural plates.</p>
+<p>Engineering a championship machine like <em>Pipeline Punch</em> or <em>Razor Leaf</em> requires an uncompromising grasp of dynamic fracture toughness, the modulus of resilience, and the real-world manufacturing constraints of high-performance alloys and engineering polymers.</p>
+<h3>The Material Spectrum: A Comparative Evaluation</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Material</th>
+<th style="text-align:center">Yield Strength $\sigma_y$ (MPa)</th>
+<th style="text-align:center">Ultimate Strength $\sigma_u$ (MPa)</th>
+<th style="text-align:center">Charpy V-Notch Toughness (J)</th>
+<th style="text-align:center">Density $\rho$ ($g/cm^3$)</th>
+<th style="text-align:left">Primary Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>6061-T6 Aluminum</strong></td>
+<td style="text-align:center">276</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">~15</td>
+<td style="text-align:center">2.70</td>
+<td style="text-align:left">Internal chassis brackets, low-risk mounts</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>7075-T6 Aluminum</strong></td>
+<td style="text-align:center">503</td>
+<td style="text-align:center">572</td>
+<td style="text-align:center">~8</td>
+<td style="text-align:center">2.81</td>
+<td style="text-align:left">Weapon pulleys, stiff unbent frame walls</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Ti-6Al-4V (Grade 5)</strong></td>
+<td style="text-align:center">880</td>
+<td style="text-align:center">950</td>
+<td style="text-align:center">~17</td>
+<td style="text-align:center">4.43</td>
+<td style="text-align:left">Front armor wedges, vertical spine spars</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>AR400 / AR500 Steel</strong></td>
+<td style="text-align:center">1000–1250</td>
+<td style="text-align:center">1250–1450</td>
+<td style="text-align:center">~25–30</td>
+<td style="text-align:center">7.85</td>
+<td style="text-align:left">Kinetic spinning bars, blunt impact teeth</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>UHMW-PE (Polyethylene)</strong></td>
+<td style="text-align:center">20–25</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">Does not break</td>
+<td style="text-align:center">0.94</td>
+<td style="text-align:left">Ablative exterior wheel guards, shock mounts</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>TPU (Shore 95A / 64D)</strong></td>
+<td style="text-align:center">35–50</td>
+<td style="text-align:center">55</td>
+<td style="text-align:center">Ultra-high</td>
+<td style="text-align:center">1.20</td>
+<td style="text-align:left">Motor shock isolators, flexible armor</td>
+</tr>
+</tbody>
+</table>
+<h3>Modulus of Resilience and Energy Absorption</h3>
+<p>Static yield strength describes the stress level at which permanent plastic deformation begins. However, when absorbing an impact, what matters most is the <strong>modulus of resilience</strong> $U_r$—the capacity of a material to absorb energy per unit volume without sustaining permanent plastic set:</p>
+<p>$$U_r = \frac{\sigma_y^2}{2E}$$</p>
+<p>Notice the quadratic dependency on yield strength $\sigma_y$ alongside an inverse dependency on Young’s modulus $E$. This explains why <strong>Grade 5 Titanium (Ti-6Al-4V)</strong> is such an extraordinary armor material:</p>
+<ul>
+<li>With a yield strength of 880 MPa and a relatively low Young’s modulus of ~114 GPa (roughly half that of steel), titanium’s modulus of resilience is nearly four times higher than high-strength alloy steels of equivalent hardness.</li>
+<li>Under a high-energy blow, a titanium wedge deflects elastically like a stiff spring, absorbing energy and tossing the attacker upward rather than fracturing or permanently crumpling inward into sensitive drive motors.</li>
+</ul>
+<h3>Machining and Bending Titanium in Practice</h3>
+<p>While Grade 5 Titanium exhibits superb mechanical properties, working with it demands respect in the machine shop:</p>
+<ol>
+<li><strong>Work Hardening &amp; Galling:</strong> Titanium possesses low thermal conductivity ($k \approx 6.7 \text{ W/m}\cdot\text{K}$ compared to aluminum’s $167 \text{ W/m}\cdot\text{K}$). Heat generated during shearing and chip formation does not evacuate with the chips; it concentrates in the cutting zone and tool tip. Milling requires sharp carbide tooling, low spindle surface speeds, rigid tool holding, and generous high-pressure flood coolant to prevent rapid tool failure.</li>
+<li><strong>Springback and Minimum Bend Radius:</strong> Because titanium’s yield strength is high and its modulus is low, elastic springback after bending is dramatic (frequently 15° to 25°). To form the front bent wedge on <em>Razor Leaf</em>, bends must be made with a punch radius at least three to four times the material thickness ($r \ge 3.5t$) to prevent micro-cracking along the tensile outer bend radius.</li>
+<li><strong>Thread Tapping:</strong> Tapping Grade 5 titanium is notoriously treacherous due to elastic recovery “closing in” on the tap flutes. Using spiral-point or thread-forming taps with specialized chlorinated or high-pressure tapping lubricants is mandatory to avoid snapping taps in finished parts.</li>
+</ol>
+<h3>The Hybrid Composite Strategy</h3>
+<p>The ultimate armor architecture combines disparate materials to exploit their complementary strengths:</p>
+<ul>
+<li>A ductile outer ablative layer of <strong>UHMW-PE</strong> dampens high-frequency shockwaves and prevents deep biting engagement from pointed spinning teeth.</li>
+<li>An underlying stiff structural spine of <strong>Grade 5 Titanium</strong> resists gross bending and distributes localized puncture stresses into the main chassis.</li>
+<li>3D printed <strong>TPU motor couplers</strong> mechanically isolate delicate internal neodymium magnets from violent deceleration spikes.</li>
+</ul>
+<p>This composite philosophy is what allowed <em>Pipeline Punch</em> to capture back-to-back Midwest Robot Combat Association finals with zero frame failures across twenty-nine tournament rounds.</p>
+
+  </div>
+
+  <div style="border-top: 1px solid var(--rule-medium); margin-top: 3.5rem; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <a href="/blog" class="btn-book btn-book-outline">&larr; All Dispatches</a>
+    </div>
+    <div>
+      <a href="/portfolio" class="btn-book">Examine Engineering Portfolio &rarr;</a>
+    </div>
+  </div>
+</article>
+
+  <footer class="monograph-footer">
+    <div class="footer-fleuron">&#10086; &#10087; &#10086;</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Ian Talbert</h5>
+        <p>Mechanical Engineer &middot; B.S. Rose-Hulman 2026</p>
+        <p>Mechanism design, high-strain dynamics, kinetic combat robotics, and autonomous sample acquisition systems.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact Coordinates</h5>
+        <p><strong>Email:</strong> <a href="mailto:talberik@rose-hulman.edu">talberik@rose-hulman.edu</a></p>
+        <p><strong>Phone:</strong> <a href="tel:8083516232">(808) 351-6232</a></p>
+        <p><strong>Stations:</strong> Honolulu, HI &middot; Terre Haute, IN</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Channels & Profiles</h5>
+        <ul>
+          <li><a href="https://github.com/talberik" target="_blank" rel="noopener">GitHub &middot; /talberik</a></li>
+          <li><a href="https://linkedin.com/in/ian-talbert" target="_blank" rel="noopener">LinkedIn &middot; /in/ian-talbert</a></li>
+          <li><a href="https://nhrl.io" target="_blank" rel="noopener">NHRL &middot; Midwest Combat Robot Assoc.</a></li>
+          <li><a href="/resume.pdf" target="_blank">Direct Curriculum Vitae (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-colophon-bar">
+      <span>Typeset in Berkeley Oldstyle &amp; Newsreader &middot; Bound on a Node.js platform.</span>
+      <span>Printed in Terre Haute &amp; Honolulu &middot; &copy; 2026 Ian Talbert</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
+

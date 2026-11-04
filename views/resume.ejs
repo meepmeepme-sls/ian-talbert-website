@@ -1,0 +1,176 @@
+<%- include('partials/header') %>
+
+<div class="resume-actions">
+  <a href="/resume.pdf" class="btn-book" download="Ian_Talbert_Resume_2026.pdf">
+    &darr; Download Authentic PDF
+  </a>
+  <button class="btn-book btn-book-outline" onclick="window.print()">
+    &#128438; Print / Save Sheet
+  </button>
+  <button class="btn-book btn-book-outline" id="toggle-pdf-btn" onclick="togglePdfPreview()">
+    &#128196; Toggle PDF Document View
+  </button>
+</div>
+
+<div id="pdf-container" style="display: none; margin-bottom: 2.5rem; border: 1px solid var(--rule-medium); background: #eee; padding: 0.5rem;">
+  <iframe src="/resume.pdf" width="100%" height="850px" style="border: none;"></iframe>
+</div>
+
+<article class="resume-container">
+  <header class="resume-header">
+    <h1 class="resume-name">Ian Talbert</h1>
+    <div class="resume-contacts">
+      (808) 351-6232 &middot; <a href="mailto:talberik@rose-hulman.edu">talberik@rose-hulman.edu</a> &middot; Honolulu, HI &middot; Terre Haute, IN
+    </div>
+  </header>
+
+  <section class="resume-section">
+    <h2 class="resume-section-title">Education</h2>
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>Rose-Hulman Institute of Technology</span>
+        <span>Terre Haute, IN</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>Bachelor of Science in Mechanical Engineering</span>
+        <span>Expected May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <h2 class="resume-section-title">Technical Skills</h2>
+    <table class="spec-table" style="margin: 0.5rem 0 1rem 0;">
+      <tbody>
+        <tr>
+          <td style="width: 25%; font-weight: 600;">CAD &amp; Modeling</td>
+          <td>SOLIDWORKS &amp; Creo Parametric, Finite Element Analysis (FEA), GD&amp;T drafting</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Programming</td>
+          <td>C++, Python (data processing, GUIs), MATLAB, AM32/BLHeli firmware configuration</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Fabrication</td>
+          <td>CNC Programming, 3D Printing (FDM, Nylon SLS, Resin), Metal Fabrication (Manual Mill &amp; Lathe), Sheet Metal Forming</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Controls &amp; Robotics</td>
+          <td>Studio 5000, ROBOGUIDE, Allen-Bradley CompactLogix PLCs, Keyence LJX-8000 3D Profilometers, Autonomous Mobile Robots (AMRs)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="resume-section">
+    <h2 class="resume-section-title">Work Experience</h2>
+
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>Broan-NuTone</span>
+        <span>June 2025 &ndash; August 2025</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>Automation Engineering Intern</span>
+        <span>Hartford, WI</span>
+      </div>
+      <ul>
+        <li>Prototyped and revised a no-force retention mechanism for recessed-pin connectors in a high-volume manufacturing environment for easy maintenance and interchangeability.</li>
+        <li>Communicated directly with automation vendors to appropriately configure and quote electric servo drives, motors, and actuators to achieve critical cycle time reductions.</li>
+        <li>Designed a combination bend and rework jig to achieve cycle times necessary for positive project ROI.</li>
+        <li>Drafted and revised production drawings for toolroom fabrication according to departmental ASME drafting standards.</li>
+        <li>Investigated and costed potential product improvements based on systematic consumer warranty feedback.</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>VEX Robotics</span>
+        <span>May 2024 &ndash; August 2024</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>Mechanical Engineering Intern</span>
+        <span>Greenville, TX</span>
+      </div>
+      <ul>
+        <li>Designed and fabricated a precision drone thrust test stand to evaluate dynamic propulsion performance across variable motor, propeller, and duct geometries.</li>
+        <li>Built and soldered drone prototypes and conducted qualitative multi-axis flight testing.</li>
+        <li>Ideated and prototyped magnetic and motorized object manipulators from macro-scale proof-of-concept to drone scale.</li>
+        <li>Optimized prototype game objects for mass, visual clarity, and aerodynamic stability under prop wash.</li>
+        <li>Designed and built a mobile drive evaluation test platform for early education product lines.</li>
+        <li>Modeled complex production components for Nylon SLS and multi-color UV resin additive processes.</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>GE Appliances</span>
+        <span>August 2023 &ndash; November 2023</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>Central Materials Co-op</span>
+        <span>Louisville, KY</span>
+      </div>
+      <ul>
+        <li>Launched and optimized autonomous finished-part material transit using Autonomous Mobile Robots (AMRs), collaborating with off-site software engineers to improve pathing and routine reliability.</li>
+        <li>Developed a part shortage impact dashboard in Python for materials planners, reworking legacy utility programs to feature intuitive graphical user interfaces.</li>
+        <li>Evaluated Keyence 3D scanning systems and presented comparative feasibility findings to department leadership.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <h2 class="resume-section-title">Leadership &amp; Extracurricular Activities</h2>
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>Rose-Hulman Combat Robotics Team</span>
+        <span>November 2023 &ndash; Present</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>President (2025&ndash;2026), Active Member</span>
+        <span>Terre Haute, IN</span>
+      </div>
+      <ul>
+        <li>Communicated with institute administration, membership, and advisors to budget, plan, and execute competition travel logistics across Illinois, Tennessee, and Connecticut (NHRL).</li>
+        <li>Introduced modern operational tools, including a standardized kit-of-parts inventory database, digital check-out system, and team schedule calendar.</li>
+        <li>Organized and led weekly live and asynchronous design reviews for peer robot architectures.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume-section">
+    <h2 class="resume-section-title">Personal Projects &amp; Competition Records</h2>
+    <div class="resume-item">
+      <div class="resume-item-header">
+        <span>Competitive Combat Robotics (1lb &amp; 3lb Divisions)</span>
+        <span>November 2023 &ndash; Present</span>
+      </div>
+      <div class="resume-item-sub">
+        <span>Reigning Midwest Combat Robot Association (MRCA) Champion</span>
+        <span>Midwest Region</span>
+      </div>
+      <ul>
+        <li>Designed 9 combat robots from scratch in SOLIDWORKS, balancing raw material costs, machining methods, mass distribution, and structural impact resilience.</li>
+        <li>Quantitatively evaluated and optimized brushless motor controller firmware (AM32) parameters for rapid spool-up of large-inertia spinning weapons while minimizing $I^2R$ thermal dissipation.</li>
+        <li>Engineered, documented, and sold complete 3lb 3D printed robot kits with comprehensive wiring schematics and assembly guides.</li>
+        <li>Earned <strong>29 career podiums and 13 tournament championships</strong> across 60 competition entries.</li>
+      </ul>
+    </div>
+  </section>
+</article>
+
+<script>
+  function togglePdfPreview() {
+    var c = document.getElementById('pdf-container');
+    var b = document.getElementById('toggle-pdf-btn');
+    if (c.style.display === 'none' || c.style.display === '') {
+      c.style.display = 'block';
+      b.innerHTML = '&#10005; Hide PDF Document View';
+    } else {
+      c.style.display = 'none';
+      b.innerHTML = '&#128196; Toggle PDF Document View';
+    }
+  }
+</script>
+
+<%- include('partials/footer') %>

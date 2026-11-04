@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> — Ian Talbert</title>
+  <meta name="description" content="Ian Talbert is a Mechanical Engineer from Rose-Hulman Institute of Technology specializing in mechanism design, combat robotics, and high-strain kinetic systems.">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Math rendering support for technical treatises -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+
+<main class="book-leaf">
+  <header class="running-header">
+    <div class="running-header-top">
+      <span>Rose-Hulman Institute of Technology &middot; Class of 2026</span>
+      <span>Honolulu, HI &middot; Terre Haute, IN</span>
+    </div>
+    <div class="running-header-nav">
+      <a href="/" class="nav-title">Ian Talbert</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">About</a></li>
+          <li><a href="/portfolio" class="<%= currentPath === '/portfolio' ? 'active' : '' %>">Portfolio</a></li>
+          <li><a href="/resume" class="<%= currentPath === '/resume' ? 'active' : '' %>">Resume</a></li>
+          <li><a href="/blog" class="<%= currentPath.startsWith('/blog') ? 'active' : '' %>">Field Notes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>

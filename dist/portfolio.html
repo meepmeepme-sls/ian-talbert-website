@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curated Engineering Portfolio — Ian Talbert</title>
+  <meta name="description" content="Ian Talbert is a Mechanical Engineer from Rose-Hulman Institute of Technology specializing in mechanism design, combat robotics, and high-strain kinetic systems.">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Math rendering support for technical treatises -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+
+<main class="book-leaf">
+  <header class="running-header">
+    <div class="running-header-top">
+      <span>Rose-Hulman Institute of Technology &middot; Class of 2026</span>
+      <span>Honolulu, HI &middot; Terre Haute, IN</span>
+    </div>
+    <div class="running-header-nav">
+      <a href="/" class="nav-title">Ian Talbert</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/" class="">About</a></li>
+          <li><a href="/portfolio" class="active">Portfolio</a></li>
+          <li><a href="/resume" class="">Resume</a></li>
+          <li><a href="/blog" class="">Field Notes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="treatise-header">
+  <div class="treatise-num">Volume I &middot; Curated Works</div>
+  <h1 class="treatise-title">Engineering Portfolio</h1>
+  <div class="treatise-meta">
+    A comprehensive treatise detailing capstone mechanisms, championship combat robotics, high school robotics foundations, and industrial automation.
+  </div>
+</section>
+
+<!-- ========================================================================
+     CHAPTER I: SENIOR CAPSTONE DESIGN (P42 SAMPLE ACQUISITION)
+     ======================================================================== -->
+<article class="treatise-section" id="capstone">
+  <div class="treatise-header">
+    <div class="treatise-num">Chapter I &middot; Senior Capstone Design (AY 2025&ndash;2026)</div>
+    <h2 class="treatise-title">P42 Robotic Planetary Sample Acquisition System</h2>
+    <div class="treatise-meta">
+      Rose-Hulman Institute of Technology &middot; Sangelkar Mechanical Engineering Laboratory<br>
+      <strong>Role:</strong> Project Manager &amp; Lead Mechanical Designer &middot; <strong>Advisors:</strong> Dr. Sangelkar, Dr. Bowman, Dr. Vitral
+    </div>
+  </div>
+
+  <p class="lead drop-cap">
+    Securing mineral and core samples in extraterrestrial or deep subsea environments presents an acute kinematic paradox: under fractional gravity or neutral buoyancy, applying downward cutting force or rotational torque to bedrock pushes the robotic vehicle directly away from the terrain. In the P42 Capstone project, our four-engineer team engineered a self-anchoring, autonomous core extraction and sample carousel system designed to harvest geological samples from jagged, unconstrained rock faces.
+  </p>
+
+  <div class="metric-strip">
+    <div class="metric-item">
+      <div class="metric-value">&gt; 180 N</div>
+      <div class="metric-label">Passive Anchor Shear Force</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">4-Slot</div>
+      <div class="metric-label">Geneva Indexing Carousel</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">15&ndash;25 N</div>
+      <div class="metric-label">Closed-Loop Plunge Force</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">0.0 N&middot;m</div>
+      <div class="metric-label">Net Reaction Torque (Oscillatory)</div>
+    </div>
+  </div>
+
+  <h3>Key Subsystems &amp; Mechanical Architecture</h3>
+
+  <h4>1. JPL-Inspired Differential Microspine Gripper Array</h4>
+  <p>
+    Rather than requiring massive hydraulic or electrical clamping mechanisms, the anchor pads utilize an array of hardened steel microspines mounted on independent compliant four-bar linkages. Inspired by planetary sampling research at NASA JPL, our mechanism introduces a multi-tier closed-loop cable differential (whiffletree):
+  </p>
+  <ul>
+    <li><strong>Continuous Tendon Differential:</strong> A continuous UHMWPE synthetic tendon routes through Delrin and oil-embedded bronze sleeve pulleys, allowing spines that hit rock asperities to stop while the tendon redistributes equalized tension across the remaining floating spines.</li>
+    <li><strong>Passive Linkage Return:</strong> Constant force springs and surgical elastomeric tubing provide restorative compliance, ensuring immediate reset when tension relaxes without requiring active bilateral cabling.</li>
+    <li><strong>Shear Adhesion:</strong> Tested to sustain over 180 Newtons of lateral and normal shear loading on cast concrete test substrates before microspine pull-out.</li>
+  </ul>
+
+  <h4>2. High-Frequency Oscillating Core Toolhead</h4>
+  <p>
+    Conventional rotary drills generate continuous reactive torsion that twists rovers off their anchor footholds. To eliminate rotational reaction moments, I reverse-engineered a high-frequency oscillatory toolhead:
+  </p>
+  <ul>
+    <li><strong>Zero-Reaction Kinematics:</strong> By reciprocating back and forth through a minute arc (~3.2&deg;) at 18,000 oscillations per minute, net reaction torque remains virtually zero.</li>
+    <li><strong>TPU Bellows Environmental Boot:</strong> Designed and additive-manufactured flexible 3D printed TPU sealing bellows to isolate internal needle bearings and bevel gearsets from abrasive slurry and crushed basalt dust.</li>
+    <li><strong>Inline Thrust Load Cell:</strong> Integrated an axial compression load cell directly behind the linear lead-screw drive carriage. A real-time closed-loop feed algorithm modulates plunge velocity to maintain cutter contact force within a 15&ndash;25 N window, optimizing specific cutting energy while safeguarding against anchor fracture.</li>
+  </ul>
+
+  <h4>3. Geneva Mechanism Multi-Station Core Carousel</h4>
+  <p>
+    For multi-site planetary sampling, storing multiple extracted cores without risking jamming is paramount. I designed an indexing sample turret actuated by a precision four-slot Geneva drive powered by a NEMA stepper motor:
+  </p>
+  <ul>
+    <li><strong>Deterministic Mechanical Dwell:</strong> The Geneva drive provides positive mechanical locking at every station, guaranteeing that sample vials align perfectly with the transfer basket regardless of sensor drift or extreme temperature fluctuations.</li>
+    <li><strong>Lightweight Sheet Metal Architecture:</strong> Evaluated aerospace aluminum versus stainless steel, optimizing bend reliefs and flange stiffness for rapid fabrication and structural rigidity.</li>
+  </ul>
+
+  <table class="spec-table">
+    <thead>
+      <tr>
+        <th>Subsystem</th>
+        <th>Engineering Specifications</th>
+        <th>Validation Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Microspine Gripper</strong></td>
+        <td>12 microspines/pad, UHMWPE differential loop, 4-bar linkage</td>
+        <td>Vertical pull testing on fractured concrete &amp; rough sandstone</td>
+      </tr>
+      <tr>
+        <td><strong>Oscillating Toolhead</strong></td>
+        <td>18,000 OPM, 3.2&deg; oscillation angle, TPU bellows boot</td>
+        <td>Core drilling trials on concrete blocks with embedded steel aggregate</td>
+      </tr>
+      <tr>
+        <td><strong>Z-Axis Linear Plunge</strong></td>
+        <td>Lead screw module, closed-loop compression load cell</td>
+        <td>Dynamometer thrust verification under variable feed rates</td>
+      </tr>
+      <tr>
+        <td><strong>Indexing Carousel</strong></td>
+        <td>4-slot Geneva mechanism, stepper driven, mechanical dwell</td>
+        <td>1,000-cycle continuous indexing endurance run</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+
+<!-- ========================================================================
+     CHAPTER II: COMBAT ROBOTICS HIGHLIGHTS
+     ======================================================================== -->
+<article class="treatise-section" id="combat-robotics">
+  <div class="treatise-header">
+    <div class="treatise-num">Chapter II &middot; Competitive Combat Robotics (2023&ndash;Present)</div>
+    <h2 class="treatise-title">Kinetic Combat Robotics &amp; MRCA Championships</h2>
+    <div class="treatise-meta">
+      President, Rose-Hulman Combat Robotics (2025&ndash;2026) &middot; Independent Competitor (Midwest Robot Combat Association &amp; NHRL)
+    </div>
+  </div>
+
+  <p class="lead drop-cap">
+    Combat robotics in the Beetleweight (3lb) and Antweight (1lb) divisions is an extreme crucible of mechanical design. Over two seasons of collegiate and open competition, I have designed nine scratch-built machines in SOLIDWORKS, performed extensive comparative static and dynamic FEA, and formulated custom motor firmware to capture back-to-back Midwest Robot Combat Association (MRCA) championships.
+  </p>
+
+  <div class="metric-strip">
+    <div class="metric-item">
+      <div class="metric-value">29</div>
+      <div class="metric-label">Career Podiums</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">13</div>
+      <div class="metric-label">Event Wins</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">#1</div>
+      <div class="metric-label">Regular Season Ranking</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-value">60</div>
+      <div class="metric-label">Tournament Matches</div>
+    </div>
+  </div>
+
+  <h3>Championship Machines &amp; Technical Highlights</h3>
+
+  <h4>Pipeline Punch &middot; 3lb Beetleweight Bar Spinner</h4>
+  <p>
+    <strong>Reigning Midwest Robot Combat Association Champion (2024 &amp; 2025 Finals Winner).</strong> 
+    Pipeline Punch utilizes a massive AR500 steel spinning bar storing upwards of 800 Joules of kinetic energy, engineered to transfer peak impulse into opposing robots and accelerate them into arena ceilings.
+  </p>
+  <ul>
+    <li><strong>Optimized Mass Budgeting:</strong> The internal chassis is heavily pocketed and additive-manufactured from high-impact engineering polymers, shifting maximum mass allowance into the exterior grade-5 titanium armor package and kinetic bar.</li>
+    <li><strong>Centrifugal Duct Cooling:</strong> Internal chassis geometry utilizes the spinning weapon rotor as an air pump, pulling cooling drafts directly across brushless drive and weapon ESC heatspreaders to prevent thermal saturation during three-minute high-rate bouts.</li>
+    <li><strong>Modular Front Geometry:</strong> Configurable between a low-slung bent-titanium wedge (countering horizontal cutters) and acute lifting forks (lifting opponents to achieve ideal hit geometry).</li>
+  </ul>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/pipeline-punch-wedge.jpg" alt="Pipeline Punch in wedge configuration" loading="lazy">
+      <figcaption>
+        <strong>Plate V.</strong> <em>Pipeline Punch</em> (3lb). Wedge configuration designed to deflect horizontal spinners, showcasing revised chassis airflow ports and low-center-of-gravity stance.
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/pipeline-punch-launch.jpg" alt="Pipeline Punch launching another robot" loading="lazy">
+      <figcaption>
+        <strong>Plate VI.</strong> <em>Pipeline Punch</em> delivering kinetic impulse during MRCA tournament finals, launching an opposing machine eight feet vertical.
+      </figcaption>
+    </figure>
+  </div>
+
+  <h4>Razor Leaf &middot; 3lb Beetleweight Vertical Spinner</h4>
+  <p>
+    The first combat machine I designed completely independently in SOLIDWORKS. Built around a central monolithic Grade 5 titanium spine supporting a vertical spinning disk, Razor Leaf was a masterclass in hybrid composite construction:
+  </p>
+  <ul>
+    <li><strong>Materials Synergy:</strong> Paired CNC-routed carbon fiber side plates with CNC-milled UHMW-PE exterior ablative armor and waterjet-cut titanium wedges.</li>
+    <li><strong>Design for Serviceability:</strong> Engineered quick-change modular drive pods allowing complete brushless motor and wheel replacement in under two minutes between tournament rounds.</li>
+    <li><strong>Championship Debut:</strong> Captured 1st place in its inaugural tournament outing in summer 2024.</li>
+  </ul>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/razor-leaf-bar.jpg" alt="Razor Leaf bar configuration" loading="lazy">
+      <figcaption>
+        <strong>Plate VII.</strong> <em>Razor Leaf</em> in bar spinner configuration, featuring bent Grade-5 titanium front wedge and dual carbon-fiber structural spars.
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/razor-leaf-damaged.jpg" alt="Razor Leaf after tournament win" loading="lazy">
+      <figcaption>
+        <strong>Plate VIII.</strong> Post-tournament inspection: <em>Razor Leaf</em> displaying minor titanium surface scuffing following its undefeated championship run in summer 2024.
+      </figcaption>
+    </figure>
+  </div>
+
+  <h4>Normality &middot; 3lb Collegiate Team Robot (NHRL)</h4>
+  <p>
+    Machined all precision aluminum components, turned custom drive shafts on manual engine lathes, and manufactured rigid frame support brackets and wheel guards. Competed at the prestigious National Havoc Robot League (NHRL) in Norwalk, CT in disk configuration.
+  </p>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/normality-nhrl.jpg" alt="Normality at NHRL" loading="lazy">
+      <figcaption>
+        <strong>Plate IX.</strong> <em>Normality</em> in disk configuration in the pits at NHRL Norwalk (January 2024).
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/monster-narwhal.jpg" alt="Monster the Narwhal" loading="lazy">
+      <figcaption>
+        <strong>Plate X.</strong> <em>Monster, the Narwhal</em> (1lb Antweight). Wedge configuration featuring lightweight pocketed wheel guards and flexible TPU hub.
+      </figcaption>
+    </figure>
+  </div>
+
+  <h4>Monster, the Narwhal &middot; 1lb Antweight</h4>
+  <p>
+    A high-density miniaturization of the Pipeline Punch architecture scaled down to 16 ounces. To solve the persistent failure point of brushless motor rotor magnets fracturing from severe weapon shockwaves, I developed a custom flexible 3D printed TPU shock-absorbing motor adapter that mechanically isolates the rotor from violent radial decelerations.
+  </p>
+
+  <h4>Commercial Kit Engineering</h4>
+  <p>
+    Designed, cost-optimized, and marketed a commercial 3lb 3D printed combat robot kit for collegiate and high-school builders, providing complete wiring schematics, assembly documentation, and bill of materials.
+  </p>
+</article>
+
+<!-- ========================================================================
+     CHAPTER III: HIGH SCHOOL ROBOTICS HIGHLIGHTS
+     ======================================================================== -->
+<article class="treatise-section" id="highschool-robotics">
+  <div class="treatise-header">
+    <div class="treatise-num">Chapter III &middot; Foundations &middot; High School Robotics (2018&ndash;2022)</div>
+    <h2 class="treatise-title">High School Robotics Highlights (FRC &amp; VRC)</h2>
+    <div class="treatise-meta">
+      FRC Team 4270 (Crusaders) &middot; VRC Team 42700B &middot; Honolulu, HI
+    </div>
+  </div>
+
+  <p class="lead drop-cap">
+    My passion for rapid prototyping, aggressive kinematic optimization, and machine shop craftsmanship was forged during four years on high-school robotics teams in Honolulu. As Mechanical Lead for FRC Team 4270 and solo/lead designer for VRC Team 42700B, I led mechanism design, programmed CNC routers, and established shop safety standards.
+  </p>
+
+  <h3>FIRST Robotics Competition (FRC Team 4270)</h3>
+  <ul>
+    <li><strong>Mechanical Lead:</strong> Mentored younger members in safe mill, lathe, and CNC router operation. Signed off on final CAD prints and programmed toolpaths for all CNC routed aluminum parts.</li>
+    <li><strong>2022 Competition Robot (Ventura Regional):</strong> Designed the ground intake mechanism, dynamic climbing hooks, and a motor-actuated variable-angle shooter hood allowing accurate scoring from any position on the tarmac.</li>
+    <li><strong>2020 Competition Robot (Canada Regional):</strong> Engineered a two-position pneumatic shooter hood and a rapid-deployment spring-loaded climber retained by a pneumatic pancake cylinder and reeled in via a custom high-torque winch. Hand-machined over 75% of hole patterns and brackets on manual mills.</li>
+  </ul>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/frc-2022-ventura.jpg" alt="FRC 4270 at Ventura Regional 2022" loading="lazy">
+      <figcaption>
+        <strong>Plate XI.</strong> FRC 4270 robot at the 2022 Ventura Regional, featuring the custom multi-linkage intake and motor-actuated shooter hood.
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/frc-2020-canada.jpg" alt="FRC 4270 robot in 2020" loading="lazy">
+      <figcaption>
+        <strong>Plate XII.</strong> FRC 4270 machine prior to the 2020 Canada Regional: spring-loaded climber and pneumatic two-position shooter.
+      </figcaption>
+    </figure>
+  </div>
+
+  <h3>VEX Robotics Competition (VRC Team 42700B)</h3>
+  <ul>
+    <li><strong>2022 VEX Worlds Machine (12.0 lb Sprinter):</strong> Designed an ultra-lightweight competition robot engineered specifically for the <em>Tipping Point</em> neutral goal sprint. By band-sawing and milling C-channels into half-cut L-angles, trimming bearing flats to circular hubs, and using diagonal high-tensile steel wire cross-bracing, the machine achieved a 12.0-pound all-up weight—making it the fastest robot to the middle of the field at the World Championships.</li>
+    <li><strong>Iterative Prototyping:</strong> Designed six discrete robot iterations between Summer 2021 and February 2022, mentoring underclassmen through build, programming, and drive-coaching.</li>
+    <li><strong>2020 Solo Robot:</strong> Built and programmed a Double Reverse Four-Bar (DR4B) tray stacker featuring spring-loaded anti-tip bars that automatically deployed as the center of mass shifted during high cube stacking.</li>
+  </ul>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/vrc-2022-worlds-12lb.jpg" alt="VRC Worlds 12lb robot" loading="lazy">
+      <figcaption>
+        <strong>Plate XIII.</strong> VRC 42700B Worlds 2022: 12-pound chassis featuring half-cut aluminum channels and high-speed gearing.
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/vrc-2020-dr4b-tray.jpg" alt="VRC 2020 DR4B robot" loading="lazy">
+      <figcaption>
+        <strong>Plate XIV.</strong> 2020 VRC robot: DR4B tray stacking mechanism with passive spring-loaded anti-tip deployment outriggers.
+      </figcaption>
+    </figure>
+  </div>
+</article>
+
+<!-- ========================================================================
+     CHAPTER IV: INDUSTRY ENGINEERING PRACTICUM
+     ======================================================================== -->
+<article class="treatise-section" id="industry">
+  <div class="treatise-header">
+    <div class="treatise-num">Chapter IV &middot; Industrial Engineering Practicum</div>
+    <h2 class="treatise-title">Industry Automation &amp; Mechanism Engineering</h2>
+    <div class="treatise-meta">
+      Engineering Internships &amp; Co-ops &middot; Broan-NuTone, VEX Robotics &amp; GE Appliances
+    </div>
+  </div>
+
+  <p class="lead drop-cap">
+    Translating mechanical innovation into high-volume manufacturing environments requires an unrelenting focus on cycle time, reliability, and Design for Assembly (DFA). Through three competitive engineering assignments, I have delivered automated tooling, dynamic drone testbeds, and robotic warehouse systems.
+  </p>
+
+  <h4>Broan-NuTone &middot; Automation Engineering Intern (Summer 2025)</h4>
+  <p>
+    Worked in Creo Parametric to pioneer novel Molex connector retention mechanisms for high-rate appliance manufacturing lines:
+  </p>
+  <ul>
+    <li><strong>Zero-Force Retention Mechanism:</strong> Prototyped and refined an interchangeable pallet attachment block to securely hold delicate recessed-pin male Molex connectors under intense vibrational assembly, eliminating pin distortion.</li>
+    <li><strong>Toolroom Drawings &amp; Jigs:</strong> Designed combination sheet-metal bending and rework jigs to shorten line cycle times, drafting complete fabrication prints to department ASME standards.</li>
+    <li><strong>Electric Actuator Specification:</strong> Communicated directly with automation vendors to specify servo drives, motors, and high-speed linear actuators to deliver favorable ROI on line retrofits.</li>
+  </ul>
+
+  <h4>VEX Robotics &middot; Mechanical Engineering Intern (Summer 2024)</h4>
+  <p>
+    Collaborated with full-time design engineers using SOLIDWORKS and SOLIDWORKS PDM on next-generation educational and commercial robotics:
+  </p>
+  <ul>
+    <li><strong>Drone Propulsion Test Stand:</strong> Designed and fabricated a high-precision multi-axis thrust evaluation dynamometer to record dynamic thrust, current draw, and vibration as propeller diameter, pitch, and duct profiles were varied.</li>
+    <li><strong>Payload Manipulators:</strong> Ideated and prototyped motorized and permanent-magnet pickup modules from bench-scale proof of concepts to flight-ready drone payloads.</li>
+    <li><strong>Advanced 3D Printing:</strong> Modeled and prepared complex functional parts for Nylon Selective Laser Sintering (SLS) and multi-color UV resin additive systems.</li>
+  </ul>
+
+  <h4>GE Appliances &middot; Central Materials Co-op (Fall 2023)</h4>
+  <p>
+    Spearheaded factory deployment and path optimization for Autonomous Mobile Robots (AMRs) in high-volume distribution centers:
+  </p>
+  <ul>
+    <li><strong>Autonomous Mobile Robots:</strong> Deployed and refined Fetch Freight 1500, Freight 500, and CartConnect AMR systems. Worked with off-site software engineers to optimize AMR navigation reliability through congested warehouse aisles.</li>
+    <li><strong>PLC &amp; Sensor Integration:</strong> Programmed Allen-Bradley CompactLogix 5300 PLCs and configured Keyence LJX-8000 line profilometers for real-time dimension and load verification.</li>
+    <li><strong>Python Analytics Dashboard:</strong> Authored Python data processing applications with graphical user interfaces to provide real-time material shortage warnings for warehouse planners.</li>
+  </ul>
+
+  <div class="plate-grid-2">
+    <figure class="plate">
+      <img src="/images/ge-fetch-freight1500.png" alt="GE Appliances Fetch Freight 1500 AMR" loading="lazy">
+      <figcaption>
+        <strong>Plate XV.</strong> Autonomous Mobile Robot (Fetch Freight 1500) outfitted with custom carton transport superstructure at GE Appliances.
+      </figcaption>
+    </figure>
+
+    <figure class="plate">
+      <img src="/images/ge-fetch-software.jpg" alt="Fetch AMR navigation software" loading="lazy">
+      <figcaption>
+        <strong>Plate XVI.</strong> Fleet navigation mapping and waypoint path optimization interface used to tune AMR routing reliability.
+      </figcaption>
+    </figure>
+  </div>
+</article>
+
+<div style="text-align: center; margin: 3rem 0 1rem 0;">
+  <a href="/resume" class="btn-book">View Curriculum Vitae &rarr;</a>
+</div>
+
+  <footer class="monograph-footer">
+    <div class="footer-fleuron">&#10086; &#10087; &#10086;</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Ian Talbert</h5>
+        <p>Mechanical Engineer &middot; B.S. Rose-Hulman 2026</p>
+        <p>Mechanism design, high-strain dynamics, kinetic combat robotics, and autonomous sample acquisition systems.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact Coordinates</h5>
+        <p><strong>Email:</strong> <a href="mailto:talberik@rose-hulman.edu">talberik@rose-hulman.edu</a></p>
+        <p><strong>Phone:</strong> <a href="tel:8083516232">(808) 351-6232</a></p>
+        <p><strong>Stations:</strong> Honolulu, HI &middot; Terre Haute, IN</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Channels & Profiles</h5>
+        <ul>
+          <li><a href="https://github.com/talberik" target="_blank" rel="noopener">GitHub &middot; /talberik</a></li>
+          <li><a href="https://linkedin.com/in/ian-talbert" target="_blank" rel="noopener">LinkedIn &middot; /in/ian-talbert</a></li>
+          <li><a href="https://nhrl.io" target="_blank" rel="noopener">NHRL &middot; Midwest Combat Robot Assoc.</a></li>
+          <li><a href="/resume.pdf" target="_blank">Direct Curriculum Vitae (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-colophon-bar">
+      <span>Typeset in Berkeley Oldstyle &amp; Newsreader &middot; Bound on a Node.js platform.</span>
+      <span>Printed in Terre Haute &amp; Honolulu &middot; &copy; 2026 Ian Talbert</span>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
+
