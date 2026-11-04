@@ -1,14 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
-const matter = require('gray-matter');
-const MarkdownIt = require('markdown-it');
-
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true
-});
 
 const distDir = path.join(__dirname, 'dist');
 if (fs.existsSync(distDir)) {
@@ -32,36 +24,6 @@ function copyDir(src, dest) {
 }
 copyDir(path.join(__dirname, 'public'), distDir);
 
-// Blog posts loader
-function getBlogPosts() {
-  const blogDir = path.join(__dirname, 'content', 'blog');
-  if (!fs.existsSync(blogDir)) return [];
-
-  const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'));
-  const posts = files.map(filename => {
-    const slug = filename.replace(/\.md$/, '');
-    const fullPath = path.join(blogDir, filename);
-    const fileContent = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContent);
-
-    return {
-      slug,
-      title: data.title || slug,
-      date: data.date || '',
-      readingTime: data.readingTime || '5 min read',
-      chapter: data.chapter || '',
-      summary: data.summary || '',
-      tags: data.tags || [],
-      content,
-      html: md.render(content)
-    };
-  });
-
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-  return posts;
-}
-
-const posts = getBlogPosts();
 const viewsDir = path.join(__dirname, 'views');
 
 function renderPage(templateName, data, outSubpath) {
@@ -87,22 +49,7 @@ renderPage('portfolio', { title: 'Curated Engineering Portfolio', currentPath: '
 renderPage('resume', { title: 'Curriculum Vitae & One-Pager Resume', currentPath: '/resume' }, 'resume/index.html');
 renderPage('resume', { title: 'Curriculum Vitae & One-Pager Resume', currentPath: '/resume' }, 'resume.html');
 
-// 4. Blog Index
-renderPage('blog', { title: 'Field Notes & Technical Treatises', currentPath: '/blog', posts }, 'blog/index.html');
-renderPage('blog', { title: 'Field Notes & Technical Treatises', currentPath: '/blog', posts }, 'blog.html');
-
-// 5. Individual Blog Posts
-posts.forEach(post => {
-  renderPage('post', {
-    title: post.title,
-    currentPath: `/blog/${post.slug}`,
-    post
-  }, `blog/${post.slug}/index.html`);
-  renderPage('post', {
-    title: post.title,
-    currentPath: `/blog/${post.slug}`,
-    post
-  }, `blog/${post.slug}.html`);
-});
+// 4. 404
+renderPage('404', { title: 'Page Not Found', currentPath: '/404' }, '404.html');
 
 console.log('Static export complete in dist/ directory.');

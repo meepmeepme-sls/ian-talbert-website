@@ -11,7 +11,7 @@ Typeset in an antique, laid-bookpage aesthetic with **Berkeley Oldstyle / Newsre
 - **Node.js Platform:** Powered by Express with EJS templating. Blazingly fast, zero client-side framework bloat, and sub-millisecond server response times.
 - **Anti-Vibecoded Philosophy:** Rejects trendy dark-mode neon gradient blobs, generic floating pill tags, and AI buzzwords in favor of tactile editorial craftsmanship, fine typographic rhythm, and deep technical substance.
 - **Dual Runtime & Static Export:**
-  - Run as a live Node.js application (`npm start` or `node server.js`) with dynamic markdown parsing.
+  - Run as a live Node.js application (`npm start` or `node server.js`).
   - Or export to pure, pre-rendered static HTML (`npm run build`) in `dist/` for zero-configuration hosting on GitHub Pages, Cloudflare Pages, Netlify, or Vercel.
 
 ---
@@ -25,8 +25,7 @@ Typeset in an antique, laid-bookpage aesthetic with **Berkeley Oldstyle / Newsre
    - **Chapter III &middot; High School Robotics Highlights:** FRC Team 4270 (The Crusaders) mechanical leadership & CNC programming; VRC Team 42700B 12.0 lb ultra-lightweight half-cut Worlds sprinter and DR4B cube stacker.
    - **Chapter IV &middot; Industrial Practicum:** Automation engineering at **Broan-NuTone**, drone propulsion dynamometry at **VEX Robotics**, and autonomous mobile robots (AMRs) at **GE Appliances**.
 3. **Curriculum Vitae / One-Pager Resume (`/resume`):** A letterpress-formatted one-page resume with an embedded preview toggle, direct PDF download (`/resume.pdf`), and dedicated `@media print` styling for exact 1-page paper printing.
-4. **Field Notes & Treatises (`/blog` & `/blog/:slug`):** Technical essays on brushless ESC tuning under high moment of inertia, microspine tendon differential kinematics, structural pocketing at VEX Worlds, and combat robotics impact metallurgy.
-5. **Universal Monograph Footer:** Contact coordinates (Honolulu, HI & Terre Haute, IN, email, phone) and links to GitHub, LinkedIn, NHRL match archives, and CAD repositories.
+4. **Universal Monograph Footer:** Contact coordinates (Honolulu, HI & Terre Haute, IN, email, phone) and links to GitHub, LinkedIn, NHRL match archives, and CAD repositories.
 
 ---
 
@@ -49,23 +48,3 @@ To generate static HTML for deployment:
 npm run build
 ```
 All static pages and assets will be output to `dist/`.
-
----
-
-## Publishing New Blog Posts
-
-To publish a new field note or engineering treatise, add a `.md` file to `content/blog/` with frontmatter:
-
-```markdown
----
-title: "Your Treatise Title"
-date: "2026-11-04"
-readingTime: "7 min read"
-chapter: "Treatise V"
-summary: "A concise overview of the engineering inquiry."
-tags: ["Robotics", "CAD", "Machining"]
----
-
-Your markdown text with KaTeX formulas like $E_k = \frac{1}{2} I \omega^2$ and tables...
-```
-The post will automatically be indexed in `/blog`, rendered at `/blog/your-file-name`, and added to the build output.
