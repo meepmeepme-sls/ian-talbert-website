@@ -2,13 +2,13 @@
 
 <div class="resume-actions">
   <a href="/resume.pdf" class="btn-book" download="Ian_Talbert_Resume_2026.pdf">
-    &darr; Download Authentic PDF
+    Download PDF
   </a>
   <button class="btn-book btn-book-outline" onclick="window.print()">
-    &#128438; Print / Save Sheet
+    Print Sheet
   </button>
   <button class="btn-book btn-book-outline" id="toggle-pdf-btn" onclick="togglePdfPreview()">
-    &#128196; Toggle PDF Document View
+    Toggle PDF View
   </button>
 </div>
 
@@ -20,7 +20,7 @@
   <header class="resume-header">
     <h1 class="resume-name">Ian Talbert</h1>
     <div class="resume-contacts">
-      (808) 351-6232 &middot; <a href="mailto:talberik@rose-hulman.edu">talberik@rose-hulman.edu</a> &middot; Honolulu, HI &middot; Terre Haute, IN
+      Contact: <a href="mailto:ianktalbert808@gmail.com">ianktalbert808@gmail.com</a>
     </div>
   </header>
 
@@ -165,10 +165,10 @@
     var b = document.getElementById('toggle-pdf-btn');
     if (c.style.display === 'none' || c.style.display === '') {
       c.style.display = 'block';
-      b.innerHTML = '&#10005; Hide PDF Document View';
+      b.innerHTML = 'Hide PDF View';
     } else {
       c.style.display = 'none';
-      b.innerHTML = '&#128196; Toggle PDF Document View';
+      b.innerHTML = 'Toggle PDF View';
     }
   }
 </script>
