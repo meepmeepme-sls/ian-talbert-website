@@ -49,7 +49,11 @@ renderPage('portfolio', { title: 'Curated Engineering Portfolio', currentPath: '
 renderPage('resume', { title: 'Curriculum Vitae & One-Pager Resume', currentPath: '/resume' }, 'resume/index.html');
 renderPage('resume', { title: 'Curriculum Vitae & One-Pager Resume', currentPath: '/resume' }, 'resume.html');
 
-// 4. 404
+// 4. Robot Combat Commissions
+renderPage('commissions', { title: 'Robot Combat Commissions', currentPath: '/commissions' }, 'commissions/index.html');
+renderPage('commissions', { title: 'Robot Combat Commissions', currentPath: '/commissions' }, 'commissions.html');
+
+// 5. 404
 renderPage('404', { title: 'Page Not Found', currentPath: '/404' }, '404.html');
 
 console.log('Static export complete in dist/ directory.');

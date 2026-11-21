@@ -25,7 +25,8 @@ Typeset in an antique, laid-bookpage aesthetic with **Berkeley Oldstyle / Newsre
    - **Chapter III &middot; High School Robotics Highlights:** FRC Team 4270 (The Crusaders) mechanical leadership & CNC programming; VRC Team 42700B 12.0 lb ultra-lightweight half-cut Worlds sprinter and DR4B cube stacker.
    - **Chapter IV &middot; Industrial Practicum:** Automation engineering at **Broan-NuTone**, drone propulsion dynamometry at **VEX Robotics**, and autonomous mobile robots (AMRs) at **GE Appliances**.
 3. **Curriculum Vitae / One-Pager Resume (`/resume`):** A letterpress-formatted one-page resume with an embedded preview toggle, direct PDF download (`/resume.pdf`), and dedicated `@media print` styling for exact 1-page paper printing.
-4. **Universal Monograph Footer:** Contact coordinates (Honolulu, HI & Terre Haute, IN, email, phone) and links to GitHub, LinkedIn, NHRL match archives, and CAD repositories.
+4. **Robot Combat Commissions (`/commissions`):** How to reach out about commissioned combat robot work (email help@latenightcombat.com or Discord `meepmeepme`).
+5. **Universal Monograph Footer:** Contact coordinates (Honolulu, HI & Terre Haute, IN, email, phone) and links to GitHub, LinkedIn, NHRL match archives, and CAD repositories.
 
 ---
 

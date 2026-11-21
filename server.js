@@ -36,6 +36,14 @@ app.get('/resume', (req, res) => {
   });
 });
 
+// 4. Robot Combat Commissions
+app.get('/commissions', (req, res) => {
+  res.render('commissions', {
+    title: 'Robot Combat Commissions',
+    currentPath: '/commissions'
+  });
+});
+
 // 404 Fallback
 app.use((req, res) => {
   res.status(404).render('404', {
